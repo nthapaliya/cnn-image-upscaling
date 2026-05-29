@@ -1,0 +1,25 @@
+# Dataset (large — download via Kaggle, see README)
+data/
+
+# Saved model checkpoints
+models/
+*.h5
+*.keras
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Conda
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+*.html
+
+# OS
+.DS_Store
+Thumbs.db

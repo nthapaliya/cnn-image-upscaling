@@ -4,13 +4,14 @@ version = "0.1.0"
 # TensorFlow supports Python 3.10–3.12; 3.13+ is not yet supported
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "tensorflow[and-cuda]>=2.16.0",
+    "tensorflow>=2.16.0",
     "keras>=3.0.0",
     "numpy>=1.26.0",
     "matplotlib>=3.8.0",
     "pandas>=2.0.0",
     "Pillow>=10.0.0",
     "kaggle>=1.6.0",
+    "pydot>=4.0.1",
 ]
 
 [dependency-groups]

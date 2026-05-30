@@ -29,19 +29,6 @@ quality degradation is perceptually obvious and metrics are well-calibrated.
 | **ESPCN** | Sub-pixel convolution (pixel shuffle) upscaling; efficient and sharp (Shi et al. 2016) |
 | **EDSR** | Enhanced Deep SR — removes batch norm for more stable training at depth (Lim et al. 2017) |
 
----
-
-## Project structure
-
-```
-cnn-image-upscaling/
-├── notebook.ipynb    # main notebook
-├── pyproject.toml    # uv dependency spec
-├── data/
-│   ├── train/        # 65,000 images (downloaded via Kaggle)
-│   └── test/         # 5,000 images (held out randomly from train set)
-└── models/           # saved checkpoints (created on first run)
-```
 
 ---
 
@@ -51,7 +38,7 @@ cnn-image-upscaling/
 TensorFlow does not yet support Python 3.13+.
 
 ```bash
-git clone https://github.com/<you>/cnn-image-upscaling.git
+git clone https://github.com/nthapaliya/cnn-image-upscaling.git
 cd cnn-image-upscaling
 
 uv python pin 3.12
@@ -66,9 +53,10 @@ You need a [Kaggle API key](https://www.kaggle.com/docs/api) configured at
 `~/.kaggle/kaggle.json`.
 
 ```bash
+uv sync
 mkdir -p data/train data/test
 cd data/train
-kaggle datasets download arnaud58/flickrfaceshq-dataset-ffhq
+uv run kaggle datasets download arnaud58/flickrfaceshq-dataset-ffhq
 unzip flickrfaceshq-dataset-ffhq.zip
 ```
 
@@ -77,8 +65,8 @@ Then create the hold-out test set (run once from the project root):
 ```python
 import glob, shutil, numpy as np
 
-for f in np.random.choice(glob.glob('data/train/*.png'), size=5000, replace=False):
-    shutil.move(f, f.replace('train', 'test'))
+for f in np.random.choice(glob.glob("data/train/*.png"), size=5000, replace=False):
+    shutil.move(f, f.replace("train", "test"))
 ```
 
 ---
@@ -89,7 +77,7 @@ for f in np.random.choice(glob.glob('data/train/*.png'), size=5000, replace=Fals
 uv run jupyter lab
 ```
 
-Open `e89-Thapaliya-Niraj-Final_Project.ipynb` and run all cells in order. The notebook:
+Open `cnn_image_upscaling.ipynb` and run all cells in order. The notebook:
 
 1. Loads and preprocesses images (downsamples to create LR/HR pairs)
 2. Defines all three network architectures

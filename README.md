@@ -6,6 +6,8 @@
 
 Final project for **CSCI E-89: Deep Learning**, Harvard Extension School, Fall 2024.
 
+[Read full report here](cnn_image_upscaling.md)
+
 ---
 
 ## Overview
